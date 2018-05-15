@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "incremental-dom": "^0.5.1",
-    "prest-lib": "git+https://github.com/peter-rybar/prest-lib.git",
+    "prest-lib": "git+https://github.com/peter-rybar/prest-lib.git#6e28f49653323437c6a22f6509c93e17f9851cab",
     "todomvc-app-css": "^2.0.0",
     "todomvc-common": "^1.0.0"
   },
