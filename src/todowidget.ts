@@ -31,10 +31,10 @@ export class TodoWidget extends WidgetE<TodoState> {
         const completed = this._state.todos.filter(t => t.completed);
         const active = this._state.todos.filter(t => !t.completed);
         switch (this._state.filter) {
-            case "active":
+            case "/active":
                 todos = active;
                 break;
-            case "completed":
+            case "/completed":
                 todos = completed;
                 break;
         }
@@ -115,8 +115,8 @@ export class TodoWidget extends WidgetE<TodoState> {
                             ["li",
                                 ["a",
                                     {
-                                        href: "#",
-                                        classes: this._state.filter === "" ? ["selected"] : []
+                                        href: "#/",
+                                        classes: this._state.filter === "/" ? ["selected"] : []
                                     },
                                     "All"
                                 ]
@@ -124,8 +124,8 @@ export class TodoWidget extends WidgetE<TodoState> {
                             ["li",
                                 ["a",
                                     {
-                                        href: "#active",
-                                        classes: this._state.filter === "active" ? ["selected"] : []
+                                        href: "#/active",
+                                        classes: this._state.filter === "/active" ? ["selected"] : []
                                     },
                                     "Active"
                                 ]
@@ -133,8 +133,8 @@ export class TodoWidget extends WidgetE<TodoState> {
                             ["li",
                                 ["a",
                                     {
-                                        href: "#completed",
-                                        classes: this._state.filter === "completed" ? ["selected"] : []
+                                        href: "#/completed",
+                                        classes: this._state.filter === "/completed" ? ["selected"] : []
                                     },
                                     "Completed"
                                 ]
