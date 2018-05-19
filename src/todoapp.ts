@@ -40,14 +40,14 @@ export class TodoApp {
             )
             .onChange(data => {
                 switch (data) {
-                    case "":
-                    case "active":
-                    case "completed":
+                    case "/":
+                    case "/active":
+                    case "/completed":
                         this.todoWidget.getActions().filter(data);
                         break;
                     default:
                         this.todoWidget.getActions().filter(data);
-                        this.hash.write("");
+                        this.hash.write("/");
                         break;
                 }
             });
