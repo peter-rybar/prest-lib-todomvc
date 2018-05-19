@@ -1,5 +1,5 @@
-import { WidgetE } from "../node_modules/prest-lib/src/main/widgete";
-import { JsonMLs } from "../node_modules/prest-lib/src/main/jsonml";
+import { WidgetE } from "prest-lib/src/main/widgete";
+import { JsonMLs } from "prest-lib/src/main/jsonml";
 
 export interface Todo {
     id: number;
