@@ -1,4 +1,4 @@
-import { Hash } from "../node_modules/prest-lib/src/main/hash";
+import { Hash } from "prest-lib/src/main/hash";
 import { TodoWidget, Todo } from "./todowidget";
 import { TodoActionsImpl } from "./todoactions";
 import { Store } from "./store";
