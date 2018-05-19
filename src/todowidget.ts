@@ -1,4 +1,4 @@
-import { WidgetE } from "../node_modules/prest-lib/src/main/widgete";
+import { WidgetA } from "../node_modules/prest-lib/src/main/widgeta";
 import { JsonMLs } from "../node_modules/prest-lib/src/main/jsonml";
 
 export interface Todo {
@@ -14,7 +14,18 @@ export interface TodoState {
     edit: number;
 }
 
-export class TodoWidget extends WidgetE<TodoState> {
+export interface TodoActions {
+    insert(title: string): void;
+    completeAll(complete: boolean): void;
+    complete(id: number): void;
+    delete(id: number): void;
+    clearCompleted(): void;
+    edit(id: number): void;
+    edited(title: string): void;
+    filter(type: string): void;
+}
+
+export class TodoWidget extends WidgetA<TodoState, TodoActions> {
 
     constructor() {
         super("TodoWidget");
@@ -154,38 +165,38 @@ export class TodoWidget extends WidgetE<TodoState> {
     private onInsert = (e: Event) => {
         const title = (e.target as HTMLInputElement).value.trim();
         if (title) {
-            this.events.emit("insert", title);
+            this._actions.insert(title);
         }
     }
 
     private onCompleteAll = (e: Event) => {
         const complete = (e.target as HTMLInputElement).checked;
-        this.events.emit("complete-all", complete);
+        this._actions.completeAll(complete);
     }
 
     private onComplete = (e: Event) => {
         const id = Number((e.target as HTMLElement).dataset.id);
-        this.events.emit("complete", id);
+        this._actions.complete(id);
     }
 
     private onDelete = (e: Event) => {
         const id = Number((e.target as HTMLElement).dataset.id);
-        this.events.emit("delete", id);
+        this._actions.delete(id);
     }
 
     private onClearCompleted = (e: Event) => {
-        this.events.emit("clear-completed");
+        this._actions.clearCompleted();
     }
 
     private onEdit = (e: Event) => {
         const id = Number((e.target as HTMLElement).dataset.id);
-        this.events.emit("edit", id);
+        this._actions.edit(id);
     }
 
     private onEdited = (e: Event) => {
         const title = (e.target as HTMLInputElement).value.trim();
         if (title) {
-            this.events.emit("edited", title);
+            this._actions.edited(title);
         }
     }
 
