@@ -39,9 +39,9 @@ export class TodoApp {
         )
         .onChange(data => {
             switch (data) {
-                case "":
-                case "active":
-                case "completed":
+                case "/":
+                case "/active":
+                case "/completed":
                     this.todoWidget.getState().filter = data;
                     this.todoWidget.update();
                     this.todoWidget.events.emit("filter", data);
@@ -50,7 +50,7 @@ export class TodoApp {
                     this.todoWidget.getState().filter = "";
                     this.todoWidget.update();
                     this.todoWidget.events.emit("filter", data);
-                    this.hash.write("");
+                    this.hash.write("/");
                     break;
             }
         })
